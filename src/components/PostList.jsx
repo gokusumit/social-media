@@ -5,33 +5,33 @@ import WelcomeMessage from "./WelcomeMessage";
 import LoadingSpinner from "./LoadingSpinner";
 
 const PostList = () => {
-  const { postList,addInitialPosts  } = useContext(PostListData);
+  const { postList,fetching} = useContext(PostListData);
   // const [dataFetched,setDataFetched]=useState(false);
-  const [fetching,setFetching]=useState(false);
+  // const [fetching,setFetching]=useState(false);
 
 
   // const [loading, setLoading] = useState(false);
   // const [error, setError] = useState(null);
  
-    useEffect(()=>{
-      setFetching(true);
+    // useEffect(()=>{
+    //   setFetching(true);
 
-      const controller=new AbortController();
-       const signal=controller.signal;
+    //   const controller=new AbortController();
+    //    const signal=controller.signal;
 
-      fetch('https://dummyjson.com/posts',{signal})
-     .then(res => res.json())
-    .then(data=>{
-     addInitialPosts(data.posts);
-     setFetching(false);
+    //   fetch('https://dummyjson.com/posts',{signal})
+    //  .then(res => res.json())
+    // .then(data=>{
+    //  addInitialPosts(data.posts);
+    //  setFetching(false);
 
-    });
-    return ()=>{
-       console.log("Cleaning up of useEffect")
-       controller.abort();
-    }
+    // });
+    // return ()=>{
+    //    console.log("Cleaning up of useEffect")
+    //    controller.abort();
+    // }
 
-    },[]);
+    // },[]);
    
    
     
